@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #ffff;
+        }
+        
+        .form {
+            width: 500px;
+            padding-top: 12px;
+            text-align: center;
+            background-color: blueviolet;
+            margin: auto;
+        }
+        
+        .namanya h1 {
+            font-family: "Arial Black", Gadget, sans-serif;
+            color: white;
+            font-style: normal;
+        }
+        
+        .input {
+            padding: 1%;
+            margin: 3%;
+            background-color: yellow;
+            border: 2px solid white;
+            border-radius: 10px;
+        }
+        
+        .danger {
+            background-color: blueviolet;
+            color: white;
+            margin-top: 1%;
+            border: 2px solid color: #000;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 17px;
+            border-radius: 5px;
+        }
+        
+        .hasil {
+            padding-bottom: 12px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="form">
+        <div class="namanya">
+            <h1>Kalkulator Javascript</h1>
+        </div>
+        <div class="input">
+            <input type="text" name="input1" id="input1">
+        </div>
+        <div class="input">
+            <input type="text" name="input2" id="input2">
+        </div>
+        <input class="danger" type="button" name="Submit" value="TAMBAH" onclick="tambah()">
+        <input class="danger" type="button" name="Submit" value="KURANG" onclick="kurang()">
+        <input class="danger" type="button" name="Submit" value="KALI" onclick="kali()">
+        <input class="danger" type="button" name="Submit" value="BAGI" onclick="bagi()">
+        <div class="hasil">
+            <h1 id="hasilnya"></h1>
+        </div>
+    </div>
+
+    <script>
+        function tambah() {
+            var bil1 = document.getElementById("input1").value;
+            var bil2 = document.getElementById("input2").value;
+            var ang1 = Number(bil1);
+            var ang2 = Number(bil2);
+
+            var hasil1 = ang1 + ang2;
+
+            document.getElementById("hasilnya").innerHTML = hasil1;
+        }
+
+        function kurang() {
+            var bil1 = document.getElementById("input1").value;
+            var bil2 = document.getElementById("input2").value;
+            var ang1 = Number(bil1);
+            var ang2 = Number(bil2);
+
+            var hasil1 = ang1 - ang2;
+
+            document.getElementById("hasilnya").innerHTML = hasil1;
+        }
+
+        function kali() {
+            var bil1 = document.getElementById("input1").value;
+            var bil2 = document.getElementById("input2").value;
+            var ang1 = Number(bil1);
+            var ang2 = Number(bil2);
+
+            var hasil1 = ang1 * ang2;
+
+            document.getElementById("hasilnya").innerHTML = hasil1;
+        }
+
+        function bagi() {
+            var bil1 = document.getElementById("input1").value;
+            var bil2 = document.getElementById("input2").value;
+            var ang1 = Number(bil1);
+            var ang2 = Number(bil2);
+
+            var hasil1 = ang1 / ang2;
+
+            document.getElementById("hasilnya").innerHTML = hasil1;
+        }
+    </script>
+</body>
+
+
+</html>
