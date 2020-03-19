@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="vue.js"></script>
+    <script src="vue.min.js"></script>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .container-fluid {
+            margin-top: 12px;
+            background-color: white;
+        }
+        
+        .navbar {
+            background-color: blueviolet;
+        }
+        
+        .card {
+            margin-top: 1%;
+        }
+        
+        .card-img-top {
+            width: auto;
+            height: 200px;
+        }
+        
+        .table {
+            margin-top: 1%;
+        }
+        
+        .pop {
+            position: absolute;
+            margin-top: 12px;
+            background-color: yellow;
+            border-radius: 10px;
+            text-align: center;
+        }
+        
+        .pop b {
+            color: white;
+            margin-left: 1%;
+        }
+        
+        .pop img {
+            width: 200px;
+            border-radius: 10px;
+            margin-bottom: 2%;
+        }
+        /* .pop .show {
+            visibility: visible;
+            -webkit-animation: fadeIn 1s;
+            animation: fadeIn 1s;
+        }
+        
+        @-webkit-keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        } */
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <a class="navbar-brand" href="#">
+            <img src="https://getbootstrap.com/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" alt="">
+        </a>
+    </nav>
+
+    <div class="container" id="container-fluid">
+        <div class="row align-items-start">
+            <div class="col" v-for="Object in motor">
+
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" v-bind:src="Object.image" alt="Card image cap">
+                    <!-- <img class="card-img-top" src="https://cdn0-production-images-kly.akamaized.net/QbYVo9CS2CJxhhhFQJMnDmLQ4q4=/640x360/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/2747152/original/088219600_1552155797-AHM_Honda_Supra_X_125_FI._06_.jpg"
+                alt="Card image cap"> -->
+                    <div class="card-body">
+                        <h5 class="card-title">{{Object.merek}}</h5>
+                        <p class="card-text">{{Object.harga}}</p>
+                        <a href="#" class="btn btn-primary" v-on:click="addCart(Object.image)">Beli</a>
+                    </div>
+                </div>
+                <!-- </div> -->
+            </div>
+            <!-- </div> -->
+            <!-- <div class="col-sm-2">-->
+            {{ qty }}
+            <div v-if="qty >= 4" class="pop" id="pop"> <b>Whoaa Horang kaayaa!!
+                    <img src="https://cdns.klimg.com/merdeka.com/i/w/news/2019/12/02/1130246/670x335/inilah-pekerjaan-pertama-sebagian-besar-orang-kaya-dan-sukses-dunia.jpg" >
+                </b>
+            </div>
+            <div v-else-if="qty >= 3" class="pop" id="pop"> <b>Kurang kakak :(
+                    <img src="https://www.liberaldictionary.com/wp-content/uploads/2018/12/please.gif">
+                </b>
+            </div>
+            <div v-else-if="qty >= 2" class="pop" id="pop"> <b>Beli lagi dongg
+                    <img src="https://akcdn.detik.net.id/community/media/visual/2016/12/11/a168c43d-0138-45d1-8cc1-abc040d2b58b_169.jpg?w=700&q=80" >
+                </b>
+            </div>
+            <div class="col">
+                <table class="table table-striped" width="1%">
+                    <thead>
+                        <tr>
+                            <th scope="col">MEREK</th>
+                            <th scope="col">AKSI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(image,index) in keranjanggambar">
+                            <th><img v-bind:src="image" style="width: 123px;height: auto;"></th>
+                            <th><button type="button" class="btn btn-danger" v-on:click="removeCart(index)">Hapus</button></th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- {{ keranjanggambar }} -->
+    </div>
+
+    <script>
+        var vm = new Vue({
+            el: '#container-fluid',
+            data: {
+                motor: [{
+                    merek: 'supra',
+                    harga: 5500000,
+                    image: 'https://cdn0-production-images-kly.akamaized.net/QbYVo9CS2CJxhhhFQJMnDmLQ4q4=/640x360/smart/filters:quality(75):strip_icc():format(jpeg)/kly-media-production/medias/2747152/original/088219600_1552155797-AHM_Honda_Supra_X_125_FI._06_.jpg'
+                }, {
+                    merek: 'mio',
+                    harga: 3400000,
+                    image: 'https://d2pa5gi5n2e1an.cloudfront.net/global/images/product/motorcycle/Yamaha_Mio/Yamaha_Mio_L_1.jpg'
+                }, {
+                    merek: 'NMax',
+                    harga: 2500000,
+                    image: 'https://d2pa5gi5n2e1an.cloudfront.net/global/images/product/motorcycle/Yamaha_NMAX_2018/Yamaha_NMAX_2018_L_1.jpg'
+                }, {
+                    merek: 'Shogun',
+                    harga: 3400000,
+                    image: 'https://d2pa5gi5n2e1an.cloudfront.net/webp/global/images/product/motorcycle/Suzuki_Shogun_Axelo125/Suzuki_Shogun_Axelo125_L_1.jpg'
+                }, {
+                    merek: 'Satria',
+                    harga: 1400000,
+                    image: 'https://www.suzuki.co.id//assets/static/img/variant/Satria-WhiteBlue.png'
+                }, {
+                    merek: 'CBR 50',
+                    harga: 44400000,
+                    image: 'https://asset.kompas.com/crops/kgjwQZSXK_DGEnv-8y8wVBqTSBE=/43x6:1000x485/750x500/data/photo/2017/04/16/24222001.jpg'
+                }],
+                keranjangharga: [],
+                keranjangmerek: [],
+                keranjanggambar: [],
+                qty: 0
+
+            },
+
+            computed: {
+                total() {
+                    return this.keranjangharga.reduce(function(sum, item) {
+                        return sum + item
+                    }, 0)
+                }
+            },
+            methods: {
+
+                addCart: function(image) {
+                    //this.keranjangharga.push(harga);
+                    this.keranjanggambar.push(image);
+                    // this.keranjangmerek.push(merek);
+
+                    this.qty += 1;
+                },
+                removeCart: function(index) {
+                    this.keranjangmerek.splice(index, 1)
+
+                    this.keranjangharga.splice(index, 1)
+
+                    this.keranjanggambar.splice(index, 1)
+                    this.qty -= 1
+
+                }
+            }
+        })
+    </script>
+    <script>
+        function myFunction() {
+            if (qty >= 4) {
+                var popup = document.getElementById("pop");
+                popup.classList.toggle("show");
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>
