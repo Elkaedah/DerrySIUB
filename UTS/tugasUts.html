@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
+    <script>
+        function openSlideMenu() {
+            document.getElementById('menu').style.width = '15%';
+            document.getElementById('content').style.marginLeft = '15%';
+        }
+
+        function closeSlideMenu() {
+            document.getElementById('menu').style.width = '0';
+            document.getElementById('content').style.marginLeft = '0';
+        }
+    </script>
+    <style>
+         :root {
+            --primary-color: #44749d;
+            --secondary-color: #1976d2;
+            --third-color: #c6d4e1;
+            --forth-color: #ebe7e0;
+            --width-one: 5%;
+            --width-two: 43%;
+            --width-three: 53%;
+        }
+        
+        .nav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: var(--secondary-color);
+            opacity: .9;
+            overflow-x: hidden;
+            padding-top: 60px;
+            transition: 2s;
+            /* float: left; */
+        }
+        
+        .nav a {
+            display: block;
+            padding: 20px 30px;
+            font-size: 25px;
+        }
+        
+        .nav a:hover {
+            transition: 2s;
+        }
+        
+        .nav .close {
+            position: absolute;
+            top: 0;
+            right: 22px;
+            margin-left: 50px;
+        }
+        
+        .slide a {
+            color: black;
+            font-size: 36px;
+            float: left;
+        }
+        
+        #content {
+            /* padding: 20px; */
+            transition: margin-left 2s;
+            overflow: hidden;
+            width: 100%;
+        }
+        
+        .background-warna {
+            background-color: var(--third-color);
+            width: var(--width-one);
+        }
+        
+        .content {
+            width: var(--width-three);
+            height: 150px;
+            margin: 2%;
+            float: left;
+            /* background-color: blanchedalmond; */
+        }
+        
+        .content-samping {
+            width: var(--width-two);
+            height: 123px;
+            float: right;
+            /* background-color: var(--primary-color); */
+            /* margin: 1%; */
+        }
+        
+        .content-one {
+            width: var(--width-three);
+            height: 450px;
+            padding: 12px;
+            margin: 1%;
+            float: left;
+        }
+        
+        .box-two {
+            padding-right: 100%;
+            padding-bottom: 50%;
+            background-color: var(--forth-color);
+            border-radius: 3px;
+            margin: 1%;
+        }
+        
+        .box-two:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .box-one {
+            padding-right: 23%;
+            padding-bottom: 23%;
+            background-color: var(--forth-color);
+            border-radius: 3px;
+            margin: 1%;
+        }
+        
+        .box-one:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .box-three {
+            padding-bottom: 544px;
+            padding-right: 50%;
+            background-color: var(--forth-color);
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+
+        <span class="slide">
+          <a href="#" onclick="openSlideMenu()">
+            <i class="fas fa-bars"></i>
+          </a>
+        </span>
+
+        <div id="menu" class="nav">
+            <a href=" # " class="close " onclick="closeSlideMenu() ">
+                x
+            </a>
+        </div>
+
+        <div class="content">
+            <a href="#" class="box-one"></a>
+            <a href="#" class="box-one"></a>
+            <a href="#" class="box-one"></a>
+            <a href="#" class="box-one"></a>
+
+
+        </div>
+        <div class="content-one">
+            <a href="#" class="box-two"></a>
+        </div>
+        <div class="content-samping">
+            <a href="#" class="box-three"></a>
+        </div>
+        <!-- <div class="content-one">
+            <a href="#" class="box-two"></a>
+        </div>
+        <div class="content-one">
+            <a href="#" class="box-two"></a>
+        </div> -->
+    </div>
+</body>
+
+</html>
